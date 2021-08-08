@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bot
+  name: bot
+  namespace: suid-help-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bot
+  template:
+    metadata:
+      labels:
+        app: bot
+    spec:
+      containers:
+      - image: lopyeg/suid-help-bot
+        name: suid-help-bot
+        env:
+          - name: TELEBOT_TOKEN
+            value: ""
+          - name: STOCKNEWSAPI_TOKEN
+            value: ""
